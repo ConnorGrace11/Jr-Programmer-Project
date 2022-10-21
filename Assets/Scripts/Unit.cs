@@ -16,6 +16,14 @@ public abstract class Unit : MonoBehaviour,
     protected NavMeshAgent m_Agent;
     protected Building m_Target;
 
+    private void Start()
+    {
+        if(MainManager.Instance != null)
+        {
+            SetColor(MainManager.Instance.TeamColor);
+        }
+    }
+
     protected void Awake()
     {
         m_Agent = GetComponent<NavMeshAgent>();
@@ -24,10 +32,6 @@ public abstract class Unit : MonoBehaviour,
         m_Agent.angularSpeed = 999;
     }
 
-    private void Start()
-    {
-
-    }
 
     void SetColor(Color c)
     {
